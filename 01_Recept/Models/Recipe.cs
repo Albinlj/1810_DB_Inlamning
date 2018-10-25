@@ -13,6 +13,5 @@ namespace _01_Recept
         public string Description { get; set; }
         public string Ingredients { get; set; }
         public int CategoryID { get; set; }
-        public Category Category { get; set; }
     }
 }

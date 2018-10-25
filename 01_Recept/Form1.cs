@@ -27,14 +27,20 @@ namespace _01_Recept
         private void LoadObjects()
         {
             Recipes = Db.LoadRecipes();
-            //Categories = Db.LoadCategories();
+            Categories = Db.LoadCategories();
+            foreach (Category category in Categories)
+            {
+                cbSearchCategory.Items.Add(category);
+                cbCategory.Items.Add(category);
+            }
+
         }
 
 
         private void UpdateMe()
         {
             lstItems.Items.Clear();
-            
+
             foreach (Recipe recipe in Recipes)
             {
                 lstItems.Items.Add(recipe);
@@ -44,7 +50,7 @@ namespace _01_Recept
         private void lbItems_SelectedIndexChanged(object sender, EventArgs e)
         {
             tbTitle.Text = ((Recipe)lstItems.SelectedItem).Title;
-            cbCategory.Text = ((Recipe)lstItems.SelectedItem).CategoryID.ToString();
+            cbCategory.SelectedItem = Categories.Find(x => x.CategoryID == ((Recipe)lstItems.SelectedItem).CategoryID);
             tbDescription.Text = ((Recipe)lstItems.SelectedItem).Description;
             tbIngredients.Text = ((Recipe)lstItems.SelectedItem).Ingredients;
         }

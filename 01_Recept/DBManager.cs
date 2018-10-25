@@ -13,7 +13,7 @@ namespace _01_Recept
 
         public List<Recipe> LoadRecipes()
         {
-                List<Recipe> recipeList = new List<Recipe>();
+            List<Recipe> recipeList = new List<Recipe>();
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
@@ -31,7 +31,7 @@ namespace _01_Recept
                         Title = reader["Title"].ToString(),
                         Description = reader["Description"].ToString(),
                         Ingredients = reader["Ingredients"].ToString(),
-                        CategoryID   = int.Parse(reader["CategoryID"].ToString())
+                        CategoryID = int.Parse(reader["CategoryID"].ToString())
                     });
                 }
                 reader.Close();
@@ -42,12 +42,12 @@ namespace _01_Recept
 
         public List<Category> LoadCategories()
         {
-                List<Category> recipeList = new List<Category>();
+            List<Category> recipeList = new List<Category>();
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
                 SqlDataReader reader = null;
-                string commandString = "SELECT * FROM Recipes";
+                string commandString = "SELECT * FROM Categories";
 
                 SqlCommand command = new SqlCommand(commandString, conn);
                 reader = command.ExecuteReader();
