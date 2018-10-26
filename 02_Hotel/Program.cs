@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace _01_Recept
+namespace _02_Hotel
 {
     static class Program
     {
@@ -12,11 +12,13 @@ namespace _01_Recept
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
+
+        public HotelDBEntities context { get; set; }
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmRecipes());
+            Application.Run(new Formzz());
         }
     }
 }

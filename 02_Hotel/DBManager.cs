@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _01_Recept
+namespace _02_Hotel
 {
-    class Category
+    class DBManager
     {
-        public int CategoryID { get; set; }
-        public string Name { get; set; }
+        public HotelDBEntities context { get; set; } = new HotelDBEntities();
 
     }
 }

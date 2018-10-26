@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2046
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01_Recept", "01_Recept\01_Recept.csproj", "{50CF4A61-2F42-4116-9359-42ECEBDFB361}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01_Recipe", "01_Recept\01_Recipe.csproj", "{50CF4A61-2F42-4116-9359-42ECEBDFB361}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NewFolder1", "NewFolder1", "{271FDFE6-D3A6-4BAE-A31C-057F79932AAF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02_Hotel", "02_Hotel\02_Hotel.csproj", "{535ADA7F-614D-4AFF-924C-A6C3DCFBE234}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,6 +17,10 @@ Global
 		{50CF4A61-2F42-4116-9359-42ECEBDFB361}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{50CF4A61-2F42-4116-9359-42ECEBDFB361}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{50CF4A61-2F42-4116-9359-42ECEBDFB361}.Release|Any CPU.Build.0 = Release|Any CPU
+		{535ADA7F-614D-4AFF-924C-A6C3DCFBE234}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{535ADA7F-614D-4AFF-924C-A6C3DCFBE234}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{535ADA7F-614D-4AFF-924C-A6C3DCFBE234}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{535ADA7F-614D-4AFF-924C-A6C3DCFBE234}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

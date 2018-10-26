@@ -1,6 +1,6 @@
 ﻿namespace _01_Recept
 {
-    partial class Form1
+    partial class frmRecipes
     {
         /// <summary>
         /// Required designer variable.
@@ -41,35 +41,36 @@
             this.cbCategory = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.tbIngredients = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tbSearchTitle
             // 
             this.tbSearchTitle.Location = new System.Drawing.Point(12, 26);
             this.tbSearchTitle.Name = "tbSearchTitle";
-            this.tbSearchTitle.Size = new System.Drawing.Size(100, 20);
+            this.tbSearchTitle.Size = new System.Drawing.Size(137, 20);
             this.tbSearchTitle.TabIndex = 0;
+            this.tbSearchTitle.TextChanged += new System.EventHandler(this.tbSearchTitle_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(9, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(27, 13);
+            this.label1.Size = new System.Drawing.Size(66, 13);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Title";
+            this.label1.Text = "Filter by Title";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(152, 10);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 13);
+            this.label2.Size = new System.Drawing.Size(88, 13);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Category";
+            this.label2.Text = "Filter by Category";
             // 
             // lstItems
             // 
@@ -78,6 +79,7 @@
             this.lstItems.Location = new System.Drawing.Point(12, 68);
             this.lstItems.Name = "lstItems";
             this.lstItems.Size = new System.Drawing.Size(264, 290);
+            this.lstItems.Sorted = true;
             this.lstItems.TabIndex = 4;
             this.lstItems.SelectedIndexChanged += new System.EventHandler(this.lbItems_SelectedIndexChanged);
             // 
@@ -90,6 +92,7 @@
             this.cbSearchCategory.Size = new System.Drawing.Size(121, 21);
             this.cbSearchCategory.TabIndex = 5;
             this.cbSearchCategory.ValueMember = "CategoryID";
+            this.cbSearchCategory.SelectedIndexChanged += new System.EventHandler(this.cbSearchCategory_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -126,7 +129,6 @@
             this.tbDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.tbDescription.Size = new System.Drawing.Size(180, 112);
             this.tbDescription.TabIndex = 8;
-            this.tbDescription.Text = "hej\r\nhoj";
             // 
             // label5
             // 
@@ -141,8 +143,8 @@
             // cbCategory
             // 
             this.cbCategory.DisplayMember = "Name";
-            this.cbCategory.FormattingEnabled = true;
-            this.cbCategory.Location = new System.Drawing.Point(364, 98);
+            this.cbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCategory.Location = new System.Drawing.Point(364, 95);
             this.cbCategory.Name = "cbCategory";
             this.cbCategory.Size = new System.Drawing.Size(180, 21);
             this.cbCategory.TabIndex = 10;
@@ -166,43 +168,46 @@
             this.tbIngredients.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.tbIngredients.Size = new System.Drawing.Size(180, 112);
             this.tbIngredients.TabIndex = 11;
-            this.tbIngredients.Text = "hej\r\nhoj";
             // 
-            // button1
+            // btnAdd
             // 
-            this.button1.Location = new System.Drawing.Point(12, 364);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Add New";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnAdd.Location = new System.Drawing.Point(11, 364);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(85, 23);
+            this.btnAdd.TabIndex = 13;
+            this.btnAdd.Text = "Add New";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // button2
+            // btnUpdate
             // 
-            this.button2.Location = new System.Drawing.Point(93, 364);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 13;
-            this.button2.Text = "Update";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnUpdate.Enabled = false;
+            this.btnUpdate.Location = new System.Drawing.Point(102, 364);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(85, 23);
+            this.btnUpdate.TabIndex = 13;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
-            // button3
+            // btnDelete
             // 
-            this.button3.Location = new System.Drawing.Point(174, 364);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 13;
-            this.button3.Text = "Delete";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnDelete.Location = new System.Drawing.Point(193, 364);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(85, 23);
+            this.btnDelete.TabIndex = 13;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // Form1
+            // frmRecipes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(563, 399);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnUpdate);
+            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.tbIngredients);
             this.Controls.Add(this.cbCategory);
@@ -216,8 +221,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbSearchTitle);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "frmRecipes";
+            this.Text = "frmRecipes";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -238,9 +243,9 @@
         private System.Windows.Forms.ComboBox cbCategory;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tbIngredients;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnDelete;
     }
 }
 

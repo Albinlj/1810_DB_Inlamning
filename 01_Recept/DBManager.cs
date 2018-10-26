@@ -11,28 +11,32 @@ namespace _01_Recept
     {
         private string connectionString = "Data Source=localhost;Initial Catalog=RecipesDB;Integrated Security=true";
 
-        public List<Recipe> LoadRecipes()
+        public List<Recipe> LoadRecipes(List<Category> categories)
         {
             List<Recipe> recipeList = new List<Recipe>();
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                SqlDataReader reader = null;
                 string commandString = "SELECT * FROM Recipes";
-
                 SqlCommand command = new SqlCommand(commandString, conn);
-                reader = command.ExecuteReader();
+                SqlDataReader reader = command.ExecuteReader();
 
                 while (reader.Read())
                 {
-                    recipeList.Add(new Recipe()
+                    var newRecipe = new Recipe();
+                    newRecipe.RecipeID = int.Parse(reader["RecipeID"].ToString());
+                    newRecipe.Title = reader["Title"].ToString();
+                    newRecipe.Description = reader["Description"].ToString();
+                    newRecipe.Ingredients = reader["Ingredients"].ToString();
+                    if (reader["CategoryID"] == DBNull.Value)
                     {
-                        RecipeID = int.Parse(reader["RecipeID"].ToString()),
-                        Title = reader["Title"].ToString(),
-                        Description = reader["Description"].ToString(),
-                        Ingredients = reader["Ingredients"].ToString(),
-                        CategoryID = int.Parse(reader["CategoryID"].ToString())
-                    });
+                        newRecipe.Category = null;
+                    }
+                    else
+                    {
+                        newRecipe.Category = categories.Find(x => x.CategoryID == int.Parse(reader["CategoryID"].ToString()));
+                    }
+                    recipeList.Add(newRecipe);
                 }
                 reader.Close();
             }
@@ -51,7 +55,6 @@ namespace _01_Recept
 
                 SqlCommand command = new SqlCommand(commandString, conn);
                 reader = command.ExecuteReader();
-
                 while (reader.Read())
                 {
                     recipeList.Add(new Category()
@@ -60,10 +63,72 @@ namespace _01_Recept
                         Name = reader["Name"].ToString()
                     });
                 }
+
                 reader.Close();
             }
 
             return recipeList;
+        }
+
+        public void DeleteRecipe(int recipeId)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                string commandString = $"DELETE FROM Recipes " +
+                                       $"WHERE RecipeID = {recipeId}";
+
+                SqlCommand command = new SqlCommand(commandString, conn);
+                command.ExecuteNonQuery();
+            }
+        }
+
+        public int AddRecipe(Recipe recipe)
+        {
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                string insertString = $"INSERT INTO Recipes " +
+                                      $"(Title, Description, Ingredients, CategoryID) " +
+                                      $"VALUES (@Title, @Description, @Ingredients, @CategoryID)";
+                SqlCommand insertCommand = new SqlCommand(insertString, conn);
+                insertCommand.Parameters.AddWithValue("@Title", recipe.Title);
+                insertCommand.Parameters.AddWithValue("@Description", recipe.Description);
+                insertCommand.Parameters.AddWithValue("@Ingredients", recipe.Ingredients);
+                if (recipe.Category == null)
+                    insertCommand.Parameters.AddWithValue("@CategoryID", DBNull.Value);
+                else
+                    insertCommand.Parameters.AddWithValue("@CategoryID", recipe.Category.CategoryID);
+                insertCommand.ExecuteNonQuery();
+
+                string identityString = $"SELECT @@IDENTITY";
+                SqlCommand identityCommand = new SqlCommand(identityString, conn);
+                return Convert.ToInt32(identityCommand.ExecuteScalar());
+            }
+        }
+
+
+        public void UpdateRecipe(Recipe recipe)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                string updateString = $"UPDATE Recipes " +
+                                     $"SET Title = @Title, Description = @Description, Ingredients = @Ingredients, CategoryID = @CategoryID " +
+                                     $"WHERE RecipeID = @RecipeID";
+                SqlCommand command = new SqlCommand(updateString, conn);
+                command.Parameters.AddWithValue("@Title", recipe.Title);
+                command.Parameters.AddWithValue("@Description", recipe.Description);
+                command.Parameters.AddWithValue("@Ingredients", recipe.Ingredients);
+
+                if (recipe.Category == null)
+                    command.Parameters.AddWithValue("@CategoryID", DBNull.Value);
+                else
+                    command.Parameters.AddWithValue("@CategoryID", recipe.Category.CategoryID);
+                command.Parameters.AddWithValue("@RecipeID", recipe.RecipeID);
+                command.ExecuteNonQuery();
+            }
         }
     }
 }
