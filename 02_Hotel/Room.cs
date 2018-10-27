@@ -18,16 +18,14 @@ namespace _02_Hotel
         public Room()
         {
             this.Bookings = new HashSet<Booking>();
-            this.ExtraBed = new HashSet<ExtraBed>();
         }
     
         public int Id { get; set; }
+        public int Beds { get; set; }
         public int MaxExtraBeds { get; set; }
-        public int BedAmount { get; set; }
+        public int RoomNumber { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Booking> Bookings { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ExtraBed> ExtraBed { get; set; }
     }
 }

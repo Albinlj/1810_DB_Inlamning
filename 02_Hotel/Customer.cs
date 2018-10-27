@@ -17,18 +17,19 @@ namespace _02_Hotel
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Customer()
         {
-            this.Bookings = new HashSet<Booking>();
+            this.Booking = new HashSet<Booking>();
         }
     
         public int Id { get; set; }
-        public string NameFirst { get; set; }
-        public string NameLast { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
         public string Address { get; set; }
         public string City { get; set; }
-        public string Country { get; set; }
         public string PostalCode { get; set; }
+        public string Country { get; set; }
+        public string Test { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Booking> Bookings { get; set; }
+        public virtual ICollection<Booking> Booking { get; set; }
     }
 }

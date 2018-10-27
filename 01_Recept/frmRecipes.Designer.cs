@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tbSearchTitle = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lstItems = new System.Windows.Forms.ListBox();
             this.cbSearchCategory = new System.Windows.Forms.ComboBox();
+            this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label3 = new System.Windows.Forms.Label();
             this.tbTitle = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -44,6 +46,7 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tbSearchTitle
@@ -85,14 +88,16 @@
             // 
             // cbSearchCategory
             // 
-            this.cbSearchCategory.DisplayMember = "Name";
             this.cbSearchCategory.FormattingEnabled = true;
             this.cbSearchCategory.Location = new System.Drawing.Point(155, 26);
             this.cbSearchCategory.Name = "cbSearchCategory";
             this.cbSearchCategory.Size = new System.Drawing.Size(121, 21);
             this.cbSearchCategory.TabIndex = 5;
-            this.cbSearchCategory.ValueMember = "CategoryID";
             this.cbSearchCategory.SelectedIndexChanged += new System.EventHandler(this.cbSearchCategory_SelectedIndexChanged);
+            // 
+            // categoryBindingSource
+            // 
+            this.categoryBindingSource.DataSource = typeof(_01_Recept.Category);
             // 
             // label3
             // 
@@ -223,6 +228,7 @@
             this.Controls.Add(this.tbSearchTitle);
             this.Name = "frmRecipes";
             this.Text = "frmRecipes";
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -246,6 +252,7 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.BindingSource categoryBindingSource;
     }
 }
 

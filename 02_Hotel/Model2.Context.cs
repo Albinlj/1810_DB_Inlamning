@@ -12,23 +12,25 @@ namespace _02_Hotel
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-
+    
     public partial class HotelDBEntities : DbContext
     {
         public HotelDBEntities()
             : base("name=HotelDBEntities")
         {
         }
-
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }
-
-        public virtual DbSet<Room> Rooms { get; set; }
-        public virtual DbSet<ExtraBed> ExtraBeds { get; set; }
+    
         public virtual DbSet<Customer> Customers { get; set; }
-        public virtual DbSet<Payment> Payments { get; set; }
+        public virtual DbSet<Room> Rooms { get; set; }
+        public virtual DbSet<Extrabed> Extrabeds1 { get; set; }
         public virtual DbSet<Booking> Bookings { get; set; }
+        public virtual DbSet<Payment> Payments { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<ExtrabedBooking> ExtrabedBookings { get; set; }
     }
 }

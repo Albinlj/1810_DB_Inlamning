@@ -12,10 +12,17 @@ namespace _02_Hotel
     using System;
     using System.Collections.Generic;
     
-    public partial class ExtraBed
+    public partial class Extrabed
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Extrabed()
+        {
+            this.ExtrabedBookings = new HashSet<ExtrabedBooking>();
+        }
+    
         public int Id { get; set; }
     
-        public virtual Room Rooms { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ExtrabedBooking> ExtrabedBookings { get; set; }
     }
 }
