@@ -11,13 +11,12 @@ namespace _02_Hotel
 {
     using System;
     using System.Collections.Generic;
-
-    public partial class Payment
+    
+    public partial class ExtrabedBooking
     {
         public int Id { get; set; }
-        public System.DateTime DatePaid { get; set; }
-        public decimal Amount { get; set; }
-
-        public virtual Booking Booking { get; set; }
+    
+        public virtual Extrabed Extrabed { get; set; }
+        public virtual Booking Bookings { get; set; }
     }
 }

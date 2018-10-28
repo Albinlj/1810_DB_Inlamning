@@ -55,19 +55,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EntityFW\Booking.cs">
+    <Compile Include="Booking.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
     <Compile Include="Utility.cs" />
     <Compile Include="Models\BookingX.cs" />
-    <Compile Include="EntityFW\Customer.cs">
+    <Compile Include="Customer.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CustomerX.cs" />
-    <Compile Include="EntityFW\Extrabed.cs">
+    <Compile Include="Extrabed.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
-    <Compile Include="EntityFW\ExtrabedBooking.cs">
+    <Compile Include="ExtrabedBooking.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmAddPayment.cs">
@@ -100,29 +100,29 @@
     <Compile Include="Forms\frmViewBookings.Designer.cs">
       <DependentUpon>frmViewBookings.cs</DependentUpon>
     </Compile>
-    <Compile Include="EntityFW\HotelDB.Designer.cs">
+    <Compile Include="HotelDB.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>HotelDB.edmx</DependentUpon>
     </Compile>
-    <Compile Include="EntityFW\Model2.Context.cs">
+    <Compile Include="Model2.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model2.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="EntityFW\Model2.cs">
+    <Compile Include="Model2.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
-    <Compile Include="EntityFW\Payment.cs">
+    <Compile Include="Payment.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
-    <Compile Include="EntityFW\Room.cs">
+    <Compile Include="Room.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
-    <Compile Include="EntityFW\sysdiagram.cs">
+    <Compile Include="sysdiagram.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Forms\FrmAddPayment.resx">
@@ -151,11 +151,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EntityDeploy Include="EntityFW\HotelDB.edmx">
+    <EntityDeploy Include="HotelDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>HotelDB.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="EntityFW\HotelDB.edmx.diagram">
+    <None Include="HotelDB.edmx.diagram">
       <DependentUpon>HotelDB.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
@@ -180,18 +180,20 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="EntityFW\HotelDB.edmx.sql" />
-    <Content Include="EntityFW\Model2.Context.tt">
+    <Content Include="HotelDB.edmx.sql" />
+    <Content Include="Model2.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model2.Context.cs</LastGenOutput>
       <DependentUpon>HotelDB.edmx</DependentUpon>
     </Content>
-    <Content Include="EntityFW\Model2.tt">
+    <Content Include="Model2.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model2.cs</LastGenOutput>
       <DependentUpon>HotelDB.edmx</DependentUpon>
     </Content>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="EntityFW\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace _02_Hotel.EntityFW
+namespace _02_Hotel
 {
     using System;
     using System.Collections.Generic;
