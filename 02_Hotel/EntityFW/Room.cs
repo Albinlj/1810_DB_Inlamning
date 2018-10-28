@@ -7,22 +7,25 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace _02_Hotel
+namespace _02_Hotel.EntityFW
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Extrabed
+    public partial class Room
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Extrabed()
+        public Room()
         {
-            this.ExtrabedBookings = new HashSet<ExtrabedBooking>();
+            this.Bookings = new HashSet<Booking>();
         }
     
-        public int Id { get; private set; }
+        public int Id { get; set; }
+        public int Beds { get; set; }
+        public int MaxExtraBeds { get; set; }
+        public int RoomNumber { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ExtrabedBooking> ExtrabedBookings { get; set; }
+        public virtual ICollection<Booking> Bookings { get; set; }
     }
 }

@@ -7,25 +7,29 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace _02_Hotel
+namespace _02_Hotel.EntityFW
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Room
+    public partial class Booking
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Room()
+        public Booking()
         {
-            this.Bookings = new HashSet<Booking>();
+            this.ExtrabedBooking = new HashSet<ExtrabedBooking>();
         }
     
         public int Id { get; set; }
-        public int Beds { get; set; }
-        public int MaxExtraBeds { get; set; }
-        public int RoomNumber { get; set; }
+        public System.DateTime DateFrom { get; set; }
+        public System.DateTime DateTo { get; set; }
+        public System.DateTime DateBooked { get; set; }
+        public decimal Price { get; set; }
     
+        public virtual Room Room { get; set; }
+        public virtual Payment Payments { get; set; }
+        public virtual Customer Customers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Booking> Bookings { get; set; }
+        public virtual ICollection<ExtrabedBooking> ExtrabedBooking { get; set; }
     }
 }
