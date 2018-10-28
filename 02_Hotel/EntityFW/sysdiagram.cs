@@ -7,17 +7,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace _02_Hotel
+namespace _02_Hotel.EntityFW
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Payment
+    public partial class sysdiagram
     {
-        public int Id { get; set; }
-        public System.DateTime DatePaid { get; set; }
-        public decimal Amount { get; set; }
-    
-        public virtual Booking Booking { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }
