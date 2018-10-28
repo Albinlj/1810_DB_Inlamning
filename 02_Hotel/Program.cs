@@ -19,6 +19,8 @@ namespace _02_Hotel
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new frmMain());
+
+            //def
         }
 
     }
