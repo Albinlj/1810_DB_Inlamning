@@ -20,7 +20,7 @@ namespace _02_Hotel
             this.ExtrabedBookings = new HashSet<ExtrabedBooking>();
         }
     
-        public int Id { get; set; }
+        public int Id { get; private set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ExtrabedBooking> ExtrabedBookings { get; set; }

@@ -12,16 +12,12 @@ namespace _02_Hotel
 {
     public partial class frmCreateCustomer : Form
     {
-        public frmCreateCustomer(string message)
+        public frmCreateCustomer()
         {
             InitializeComponent();
-            btnCancel.Text = message;
         }
 
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
 
-        }
 
         private void btnCreateCustomer_Click(object sender, EventArgs e)
         {
@@ -35,6 +31,11 @@ namespace _02_Hotel
 
             Program.Db.Customers.Add(newCustomer);
             Program.Db.SaveChanges();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

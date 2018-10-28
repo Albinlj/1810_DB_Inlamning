@@ -222,7 +222,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" cg:SetterAccess="Private" />
           <NavigationProperty Name="ExtrabedBookings" Relationship="HotelDB.ExtrabedExtrabedBooking" FromRole="Extrabed" ToRole="ExtrabedBooking" />
         </EntityType>
         <EntityType Name="Booking">
@@ -283,7 +283,7 @@
           <End Type="HotelDB.ExtrabedBooking" Role="ExtrabedBooking" Multiplicity="*" />
         </Association>
         <Association Name="ExtrabedBookingBooking">
-          <End Type="HotelDB.ExtrabedBooking" Role="ExtrabedBooking" Multiplicity="0..1" />
+          <End Type="HotelDB.ExtrabedBooking" Role="ExtrabedBooking" Multiplicity="*" />
           <End Type="HotelDB.Booking" Role="Booking" Multiplicity="1" />
         </Association>
       </Schema>

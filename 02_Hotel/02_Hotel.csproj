@@ -58,32 +58,47 @@
     <Compile Include="Booking.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Utility.cs" />
+    <Compile Include="Models\BookingX.cs" />
     <Compile Include="Customer.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CustomerX.cs" />
     <Compile Include="Extrabed.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
     <Compile Include="ExtrabedBooking.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
-    <Compile Include="frmBooking.cs">
+    <Compile Include="Forms\FrmAddPayment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmBooking.Designer.cs">
-      <DependentUpon>frmBooking.cs</DependentUpon>
+    <Compile Include="Forms\FrmAddPayment.Designer.cs">
+      <DependentUpon>FrmAddPayment.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmCreateCustomer.cs">
+    <Compile Include="Forms\frmNewBooking.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCreateCustomer.Designer.cs">
+    <Compile Include="Forms\frmNewBooking.Designer.cs">
+      <DependentUpon>frmNewBooking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmCreateCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmCreateCustomer.Designer.cs">
       <DependentUpon>frmCreateCustomer.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMain.cs">
+    <Compile Include="Forms\frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMain.Designer.cs">
+    <Compile Include="Forms\frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmViewBookings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmViewBookings.Designer.cs">
+      <DependentUpon>frmViewBookings.cs</DependentUpon>
     </Compile>
     <Compile Include="HotelDB.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -110,14 +125,21 @@
     <Compile Include="sysdiagram.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="frmBooking.resx">
-      <DependentUpon>frmBooking.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FrmAddPayment.resx">
+      <DependentUpon>FrmAddPayment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCreateCustomer.resx">
+    <EmbeddedResource Include="Forms\frmNewBooking.resx">
+      <DependentUpon>frmNewBooking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmCreateCustomer.resx">
       <DependentUpon>frmCreateCustomer.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMain.resx">
+    <EmbeddedResource Include="Forms\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmViewBookings.resx">
+      <DependentUpon>frmViewBookings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -127,6 +149,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EntityDeploy Include="HotelDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -138,6 +161,7 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Booking.datasource" />
     <None Include="Properties\DataSources\Customer.datasource" />
+    <None Include="Properties\DataSources\ExtrabedBooking.datasource" />
     <None Include="Properties\DataSources\Room.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

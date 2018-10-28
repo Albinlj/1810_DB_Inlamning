@@ -56,12 +56,14 @@
             // 
             // btnCancel
             // 
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Location = new System.Drawing.Point(223, 173);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 8;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // label1
             // 
@@ -142,7 +144,6 @@
             this.tbPostalCode.Name = "tbPostalCode";
             this.tbPostalCode.Size = new System.Drawing.Size(201, 20);
             this.tbPostalCode.TabIndex = 4;
-            this.tbPostalCode.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
             // label6
             // 
@@ -162,8 +163,10 @@
             // 
             // frmCreateCustomer
             // 
+            this.AcceptButton = this.btnCreateCustomer;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(316, 211);
             this.Controls.Add(this.tbCountry);
             this.Controls.Add(this.tbPostalCode);
@@ -179,6 +182,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnCreateCustomer);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmCreateCustomer";
             this.Text = "Create New Customer";
             this.ResumeLayout(false);
