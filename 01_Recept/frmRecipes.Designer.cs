@@ -1,6 +1,6 @@
 ﻿namespace _01_Recept
 {
-    partial class frmRecipes
+    partial class FrmRecipes
     {
         /// <summary>
         /// Required designer variable.
@@ -34,7 +34,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lstItems = new System.Windows.Forms.ListBox();
             this.cbSearchCategory = new System.Windows.Forms.ComboBox();
-            this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label3 = new System.Windows.Forms.Label();
             this.tbTitle = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -46,6 +45,7 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -88,16 +88,13 @@
             // 
             // cbSearchCategory
             // 
+            this.cbSearchCategory.DisplayMember = "Name";
             this.cbSearchCategory.FormattingEnabled = true;
             this.cbSearchCategory.Location = new System.Drawing.Point(155, 26);
             this.cbSearchCategory.Name = "cbSearchCategory";
             this.cbSearchCategory.Size = new System.Drawing.Size(121, 21);
             this.cbSearchCategory.TabIndex = 5;
             this.cbSearchCategory.SelectedIndexChanged += new System.EventHandler(this.cbSearchCategory_SelectedIndexChanged);
-            // 
-            // categoryBindingSource
-            // 
-            this.categoryBindingSource.DataSource = typeof(_01_Recept.Category);
             // 
             // label3
             // 
@@ -111,9 +108,11 @@
             // 
             // tbTitle
             // 
+            this.tbTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbTitle.Location = new System.Drawing.Point(364, 69);
             this.tbTitle.Name = "tbTitle";
-            this.tbTitle.Size = new System.Drawing.Size(180, 20);
+            this.tbTitle.Size = new System.Drawing.Size(363, 20);
             this.tbTitle.TabIndex = 6;
             // 
             // label4
@@ -128,11 +127,12 @@
             // 
             // tbDescription
             // 
+            this.tbDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tbDescription.Location = new System.Drawing.Point(364, 124);
             this.tbDescription.Multiline = true;
             this.tbDescription.Name = "tbDescription";
             this.tbDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbDescription.Size = new System.Drawing.Size(180, 112);
+            this.tbDescription.Size = new System.Drawing.Size(363, 112);
             this.tbDescription.TabIndex = 8;
             // 
             // label5
@@ -147,11 +147,12 @@
             // 
             // cbCategory
             // 
+            this.cbCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cbCategory.DisplayMember = "Name";
             this.cbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCategory.Location = new System.Drawing.Point(364, 95);
             this.cbCategory.Name = "cbCategory";
-            this.cbCategory.Size = new System.Drawing.Size(180, 21);
+            this.cbCategory.Size = new System.Drawing.Size(362, 21);
             this.cbCategory.TabIndex = 10;
             this.cbCategory.ValueMember = "CategoryID";
             // 
@@ -167,11 +168,12 @@
             // 
             // tbIngredients
             // 
+            this.tbIngredients.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tbIngredients.Location = new System.Drawing.Point(364, 242);
             this.tbIngredients.Multiline = true;
             this.tbIngredients.Name = "tbIngredients";
             this.tbIngredients.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbIngredients.Size = new System.Drawing.Size(180, 112);
+            this.tbIngredients.Size = new System.Drawing.Size(363, 113);
             this.tbIngredients.TabIndex = 11;
             // 
             // btnAdd
@@ -205,11 +207,15 @@
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // frmRecipes
+            // categoryBindingSource
+            // 
+            this.categoryBindingSource.DataSource = typeof(_01_Recept.Category);
+            // 
+            // FrmRecipes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(563, 399);
+            this.ClientSize = new System.Drawing.Size(739, 394);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnAdd);
@@ -226,7 +232,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbSearchTitle);
-            this.Name = "frmRecipes";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximumSize = new System.Drawing.Size(1000, 433);
+            this.MinimumSize = new System.Drawing.Size(0, 433);
+            this.Name = "FrmRecipes";
             this.Text = "frmRecipes";
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).EndInit();
             this.ResumeLayout(false);

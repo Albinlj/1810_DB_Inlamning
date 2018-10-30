@@ -24,9 +24,11 @@ namespace _02_Hotel
             Booking bookingToDelete = GetSelectedBooking();
             if (bookingToDelete != null)
             {
+                MessageBox.Show("Editing booking. Pressing cancel deletes it.");
                 Customer customerOfBooking = bookingToDelete.Customers;
+                Booking copyOfBooking = new Booking(bookingToDelete);
                 DeleteBookingAndBedBookings(bookingToDelete);
-                new frmNewBooking(customerOfBooking).ShowDialog();
+                new frmNewBooking(copyOfBooking).ShowDialog();
             }
         }
 
@@ -42,6 +44,10 @@ namespace _02_Hotel
         private void DeleteBookingAndBedBookings(Booking bookingToDelete)
         {
             Program.Db.ExtrabedBookings.RemoveRange(bookingToDelete.ExtrabedBooking);
+            if (bookingToDelete.Payments != null)
+            {
+                Program.Db.Payments.Remove(bookingToDelete.Payments);
+            }
             Program.Db.Bookings.Remove(bookingToDelete);
             Program.Db.SaveChanges();
         }
@@ -74,7 +80,7 @@ namespace _02_Hotel
                 if (booking.Payments == null)
                 {
 
-                    new FrmAddPayment(booking);
+                    new FrmAddPayment(booking).Show();
                 }
                 else
                 {

@@ -33,9 +33,6 @@
             this.dtpBookingTo = new System.Windows.Forms.DateTimePicker();
             this.dgBookingRooms = new System.Windows.Forms.DataGridView();
             this.RoomNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bedsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.maxExtraBedsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.roomBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cbBookingPeople = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnBookingBook = new System.Windows.Forms.Button();
@@ -43,10 +40,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.bookingBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.extrabedBookingBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label5 = new System.Windows.Forms.Label();
             this.cbCustomers = new System.Windows.Forms.ComboBox();
+            this.bedsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.maxExtraBedsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.roomBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bookingBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.extrabedBookingBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgBookingRooms)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roomBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookingBindingSource)).BeginInit();
@@ -84,7 +84,9 @@
             this.maxExtraBedsDataGridViewTextBoxColumn});
             this.dgBookingRooms.DataSource = this.roomBindingSource;
             this.dgBookingRooms.Location = new System.Drawing.Point(242, 34);
+            this.dgBookingRooms.MultiSelect = false;
             this.dgBookingRooms.Name = "dgBookingRooms";
+            this.dgBookingRooms.ReadOnly = true;
             this.dgBookingRooms.Size = new System.Drawing.Size(540, 199);
             this.dgBookingRooms.TabIndex = 1;
             // 
@@ -94,24 +96,9 @@
             this.RoomNumber.HeaderText = "RoomNumber";
             this.RoomNumber.Name = "RoomNumber";
             // 
-            // bedsDataGridViewTextBoxColumn
-            // 
-            this.bedsDataGridViewTextBoxColumn.DataPropertyName = "Beds";
-            this.bedsDataGridViewTextBoxColumn.HeaderText = "Beds";
-            this.bedsDataGridViewTextBoxColumn.Name = "bedsDataGridViewTextBoxColumn";
-            // 
-            // maxExtraBedsDataGridViewTextBoxColumn
-            // 
-            this.maxExtraBedsDataGridViewTextBoxColumn.DataPropertyName = "MaxExtraBeds";
-            this.maxExtraBedsDataGridViewTextBoxColumn.HeaderText = "MaxExtraBeds";
-            this.maxExtraBedsDataGridViewTextBoxColumn.Name = "maxExtraBedsDataGridViewTextBoxColumn";
-            // 
-            // roomBindingSource
-            // 
-            this.roomBindingSource.DataSource = typeof(_02_Hotel.Room);
-            // 
             // cbBookingPeople
             // 
+            this.cbBookingPeople.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbBookingPeople.FormattingEnabled = true;
             this.cbBookingPeople.Items.AddRange(new object[] {
             "1",
@@ -183,14 +170,6 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "Available Rooms";
             // 
-            // bookingBindingSource
-            // 
-            this.bookingBindingSource.DataSource = typeof(_02_Hotel.Booking);
-            // 
-            // extrabedBookingBindingSource
-            // 
-            this.extrabedBookingBindingSource.DataSource = typeof(_02_Hotel.ExtrabedBooking);
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -208,6 +187,30 @@
             this.cbCustomers.Name = "cbCustomers";
             this.cbCustomers.Size = new System.Drawing.Size(200, 21);
             this.cbCustomers.TabIndex = 8;
+            // 
+            // bedsDataGridViewTextBoxColumn
+            // 
+            this.bedsDataGridViewTextBoxColumn.DataPropertyName = "Beds";
+            this.bedsDataGridViewTextBoxColumn.HeaderText = "Beds";
+            this.bedsDataGridViewTextBoxColumn.Name = "bedsDataGridViewTextBoxColumn";
+            // 
+            // maxExtraBedsDataGridViewTextBoxColumn
+            // 
+            this.maxExtraBedsDataGridViewTextBoxColumn.DataPropertyName = "MaxExtraBeds";
+            this.maxExtraBedsDataGridViewTextBoxColumn.HeaderText = "MaxExtraBeds";
+            this.maxExtraBedsDataGridViewTextBoxColumn.Name = "maxExtraBedsDataGridViewTextBoxColumn";
+            // 
+            // roomBindingSource
+            // 
+            this.roomBindingSource.DataSource = typeof(_02_Hotel.Room);
+            // 
+            // bookingBindingSource
+            // 
+            this.bookingBindingSource.DataSource = typeof(_02_Hotel.Booking);
+            // 
+            // extrabedBookingBindingSource
+            // 
+            this.extrabedBookingBindingSource.DataSource = typeof(_02_Hotel.ExtrabedBooking);
             // 
             // frmNewBooking
             // 

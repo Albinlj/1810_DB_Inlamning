@@ -4,13 +4,13 @@ using System.Windows.Forms;
 
 namespace _01_Recept
 {
-    public partial class frmRecipes : Form
+    public partial class FrmRecipes : Form
     {
         internal List<Recipe> Recipes { get; set; } = new List<Recipe>();
         internal List<Category> Categories { get; set; } = new List<Category>();
         internal DBManager Db { get; set; } = new DBManager();
 
-        public frmRecipes()
+        public FrmRecipes()
         {
             InitializeComponent();
             LoadObjects();

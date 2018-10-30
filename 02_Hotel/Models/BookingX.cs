@@ -13,10 +13,19 @@ namespace _02_Hotel
                    || IsPaid;
         }
 
-        public bool IsPaid {
-            get => (this.Payments != null
-        && (DateTime.Now - this.Payments.DatePaid).Days > 10
-        && this.Payments.Amount >= Price);
+        public bool IsPaid
+        {
+            get => (this.Payments != null);
+            //&& (DateTime.Now - this.Payments.DatePaid).Days > 10
+            //&& this.Payments.Amount >= Price);
+        }
+
+        public Booking(Booking booking)
+        {
+            DateFrom = booking.DateFrom;
+            DateTo = booking.DateTo;
+            Price = booking.Price;
+            Customers = booking.Customers;
         }
 
         public int ExtraBedsCount {

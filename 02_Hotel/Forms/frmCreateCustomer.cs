@@ -31,6 +31,7 @@ namespace _02_Hotel
 
             Program.Db.Customers.Add(newCustomer);
             Program.Db.SaveChanges();
+            this.Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

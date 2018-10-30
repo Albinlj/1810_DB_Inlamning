@@ -30,9 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dgBookings = new System.Windows.Forms.DataGridView();
-            this.btnDeleteBooking = new System.Windows.Forms.Button();
-            this.btnRegisterPayment = new System.Windows.Forms.Button();
-            this.btnEditBooking = new System.Windows.Forms.Button();
             this.IsPaid = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Booker = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateFromDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,6 +38,9 @@
             this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.extraBedsCountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bookingBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnDeleteBooking = new System.Windows.Forms.Button();
+            this.btnRegisterPayment = new System.Windows.Forms.Button();
+            this.btnEditBooking = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgBookings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookingBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -69,38 +69,9 @@
             this.dgBookings.Location = new System.Drawing.Point(12, 43);
             this.dgBookings.Name = "dgBookings";
             this.dgBookings.ReadOnly = true;
+            this.dgBookings.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgBookings.Size = new System.Drawing.Size(570, 274);
             this.dgBookings.TabIndex = 0;
-            // 
-            // btnDeleteBooking
-            // 
-            this.btnDeleteBooking.Location = new System.Drawing.Point(13, 13);
-            this.btnDeleteBooking.Name = "btnDeleteBooking";
-            this.btnDeleteBooking.Size = new System.Drawing.Size(110, 23);
-            this.btnDeleteBooking.TabIndex = 1;
-            this.btnDeleteBooking.Text = "Delete Booking";
-            this.btnDeleteBooking.UseVisualStyleBackColor = true;
-            this.btnDeleteBooking.Click += new System.EventHandler(this.btnDeleteBooking_Click);
-            // 
-            // btnRegisterPayment
-            // 
-            this.btnRegisterPayment.Location = new System.Drawing.Point(245, 13);
-            this.btnRegisterPayment.Name = "btnRegisterPayment";
-            this.btnRegisterPayment.Size = new System.Drawing.Size(124, 23);
-            this.btnRegisterPayment.TabIndex = 1;
-            this.btnRegisterPayment.Text = "Register Payment";
-            this.btnRegisterPayment.UseVisualStyleBackColor = true;
-            this.btnRegisterPayment.Click += new System.EventHandler(this.btnRegisterPayment_Click);
-            // 
-            // btnEditBooking
-            // 
-            this.btnEditBooking.Location = new System.Drawing.Point(129, 13);
-            this.btnEditBooking.Name = "btnEditBooking";
-            this.btnEditBooking.Size = new System.Drawing.Size(110, 23);
-            this.btnEditBooking.TabIndex = 1;
-            this.btnEditBooking.Text = "Edit Booking";
-            this.btnEditBooking.UseVisualStyleBackColor = true;
-            this.btnEditBooking.Click += new System.EventHandler(this.btnEditBooking_Click);
             // 
             // IsPaid
             // 
@@ -154,6 +125,36 @@
             // bookingBindingSource
             // 
             this.bookingBindingSource.DataSource = typeof(_02_Hotel.Booking);
+            // 
+            // btnDeleteBooking
+            // 
+            this.btnDeleteBooking.Location = new System.Drawing.Point(13, 13);
+            this.btnDeleteBooking.Name = "btnDeleteBooking";
+            this.btnDeleteBooking.Size = new System.Drawing.Size(110, 23);
+            this.btnDeleteBooking.TabIndex = 1;
+            this.btnDeleteBooking.Text = "Delete Booking";
+            this.btnDeleteBooking.UseVisualStyleBackColor = true;
+            this.btnDeleteBooking.Click += new System.EventHandler(this.btnDeleteBooking_Click);
+            // 
+            // btnRegisterPayment
+            // 
+            this.btnRegisterPayment.Location = new System.Drawing.Point(245, 13);
+            this.btnRegisterPayment.Name = "btnRegisterPayment";
+            this.btnRegisterPayment.Size = new System.Drawing.Size(124, 23);
+            this.btnRegisterPayment.TabIndex = 1;
+            this.btnRegisterPayment.Text = "Register Payment";
+            this.btnRegisterPayment.UseVisualStyleBackColor = true;
+            this.btnRegisterPayment.Click += new System.EventHandler(this.btnRegisterPayment_Click);
+            // 
+            // btnEditBooking
+            // 
+            this.btnEditBooking.Location = new System.Drawing.Point(129, 13);
+            this.btnEditBooking.Name = "btnEditBooking";
+            this.btnEditBooking.Size = new System.Drawing.Size(110, 23);
+            this.btnEditBooking.TabIndex = 1;
+            this.btnEditBooking.Text = "Edit Booking";
+            this.btnEditBooking.UseVisualStyleBackColor = true;
+            this.btnEditBooking.Click += new System.EventHandler(this.btnEditBooking_Click);
             // 
             // frmViewBookings
             // 

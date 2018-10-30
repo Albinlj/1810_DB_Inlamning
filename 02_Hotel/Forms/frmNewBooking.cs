@@ -13,8 +13,6 @@ using System.Windows.Forms;
 
 namespace _02_Hotel
 {
-
-
     public partial class frmNewBooking : Form
     {
         int people;
@@ -30,15 +28,34 @@ namespace _02_Hotel
             cbCustomers.SelectedItem = bookingCustomer;
             cbBookingPeople.SelectedIndex = 0;
             dgBookingRooms.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtpBookingTo.Value = DateTime.Now.AddDays(1);
+            dtpBookingFrom.Value = DateTime.Now;
+            dtpBookingFrom.MinDate = DateTime.Now;
             UpdateDatagrids();
+        }
+
+        public frmNewBooking(Booking oldBooking)
+        {
+            InitializeComponent();
+            _bookingCustomer = oldBooking.Customers;
+            cbCustomers.SelectedItem = oldBooking.Customers;
+            cbBookingPeople.SelectedIndex = 0;
+            dtpBookingFrom.Value = oldBooking.DateFrom;
+            dtpBookingTo.Value = oldBooking.DateTo;
+
+            cbCustomers.Items.AddRange(Program.Db.Customers.ToArray());
+            cbCustomers.Sorted = true;
+            cbCustomers.SelectedItem = _bookingCustomer;
         }
 
 
         private void UpdateDatagrids()
         {
             people = int.Parse(cbBookingPeople.SelectedItem.ToString());
-
+            if (dtpBookingTo.Value < dtpBookingFrom.Value)
+            {
+                dtpBookingTo.Value = dtpBookingFrom.Value.AddDays(1);
+            }
+            dtpBookingTo.MinDate = dtpBookingFrom.Value.AddDays(1);
 
             var roomsWithOverlappingBookings = (from room in Program.Db.Rooms.ToList()
                                                 join booking in Program.Db.Bookings.ToList()
@@ -48,14 +65,14 @@ namespace _02_Hotel
                                                 select room).ToList();
 
             var availableRooms = (from r in Program.Db.Rooms.ToList()
-                                  where r.Beds + Math.Min(GetAvailableBeds().Count(), r.MaxExtraBeds) >= people && !roomsWithOverlappingBookings.Contains(r)
+                                  where r.Beds + Math.Min(GetAvailableExtraBeds().Count(), r.MaxExtraBeds) >= people && !roomsWithOverlappingBookings.Contains(r)
                                   select r).ToList();
 
             dgBookingRooms.DataSource = availableRooms;
 
         }
 
-        private List<Extrabed> GetAvailableBeds()
+        private List<Extrabed> GetAvailableExtraBeds()
         {
             var notAvailableBeds = (from eb in Program.Db.Extrabeds1.ToList()
                                     join ebb in Program.Db.ExtrabedBookings.ToList() on eb equals ebb.Extrabed
@@ -76,13 +93,14 @@ namespace _02_Hotel
             if ((dtpBookingTo.Value.Date - dtpBookingFrom.Value.Date).Days > 0)
             {
                 Room selectedRoom = (Room)dgBookingRooms.CurrentRow.DataBoundItem;
-                var newBooking = new Booking()
+
+                Booking newBooking = new Booking()
                 {
                     DateBooked = DateTime.Now.Date,
                     DateFrom = dtpBookingFrom.Value.Date,
                     DateTo = dtpBookingTo.Value.Date,
                     Customers = _bookingCustomer,
-                    Price = 1000m,
+                    Price = 1000 * (dtpBookingTo.Value.Date - dtpBookingFrom.Value.Date).Days,
                     Room = selectedRoom
                 };
                 Program.Db.Bookings.Add(newBooking);
@@ -104,7 +122,7 @@ namespace _02_Hotel
             Program.Db.ExtrabedBookings.Add(new ExtrabedBooking()
             {
                 Bookings = booking,
-                Extrabed = GetAvailableBeds().FirstOrDefault()
+                Extrabed = GetAvailableExtraBeds().FirstOrDefault()
             }
             );
         }

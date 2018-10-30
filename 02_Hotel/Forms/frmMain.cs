@@ -27,7 +27,7 @@ namespace _02_Hotel
         {
             if (dgCustomers.SelectedRows.Count == 0)
             {
-                MessageBox.Show("No customer selected.");
+                MessageBox.Show("No customer selected. You need to select an entire row by clicking the leftmost cell of the row.");
                 return null;
             }
             else if (dgCustomers.SelectedRows.Count > 1)

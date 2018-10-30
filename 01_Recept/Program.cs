@@ -16,7 +16,7 @@ namespace _01_Recept
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmRecipes());
+            Application.Run(new FrmRecipes());
         }
     }
 }
